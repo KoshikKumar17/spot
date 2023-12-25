@@ -31,7 +31,7 @@
     <script>
         function convertLink() {
             const dynamicLink = document.getElementById('spotifyLink').value;
-            const regex = /https:\/\/open\.spotify\.com\/track\/([a-zA-Z0-9]+)/;
+            const regex = /https:\/\/spotify\.link\/([a-zA-Z0-9]+)/;
             const match = dynamicLink.match(regex);
 
             if (match && match[1]) {
