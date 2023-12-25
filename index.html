@@ -1,0 +1,48 @@
+<!--- Koshik (c) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Link Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Spotify Link Converter</h1>
+
+    <label for="spotifyLink">Enter Spotify Dynamic Link:</label>
+    <input type="text" id="spotifyLink" placeholder="Paste your Spotify link here">
+
+    <button onclick="convertLink()">Convert</button>
+
+    <p id="convertedLink"></p>
+
+    <script>
+        function convertLink() {
+            const dynamicLink = document.getElementById('spotifyLink').value;
+            const regex = /https:\/\/open\.spotify\.com\/track\/([a-zA-Z0-9]+)/;
+            const match = dynamicLink.match(regex);
+
+            if (match && match[1]) {
+                const trackId = match[1];
+                const streamingLink = `https://open.spotify.com/embed/track/${trackId}`;
+                document.getElementById('convertedLink').innerText = `Converted Link: ${streamingLink}`;
+            } else {
+                document.getElementById('convertedLink').innerText = 'Invalid Spotify Link';
+            }
+        }
+    </script>
+
+</body>
+</html>
